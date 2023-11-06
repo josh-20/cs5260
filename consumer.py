@@ -7,7 +7,10 @@ import traceback
 
 class Consumer:
     def __init__(self):
-        logging.basicConfig(filename="consumer.log", level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+        logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s',handlers=[
+        logging.FileHandler("consumer.log"),  # Log to a file
+        logging.StreamHandler()  # Log to the console
+    ])
         self.s3 = boto3.client('s3')
         self.dynamoDB = boto3.client('dynamodb', 'us-east-1')
         self.queue = boto3.client('sqs', 'us-east-1')

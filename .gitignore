@@ -3,3 +3,4 @@ logs/
 consumer.log
 sample-requests
 _MACOSX/
+docker.env

@@ -9,6 +9,7 @@ class TestConsumer(unittest.TestCase):
     def test_createDBItem(self):
         object = {
             'widgetId': '123',
+            'requestId': '456',
             'owner': 'John',
             'label': 'Test',
             'description': 'A test widget',
@@ -23,6 +24,7 @@ class TestConsumer(unittest.TestCase):
 
         expected_item = {
             'id': {'S': '123'},
+            'requestId': {'S': '456'},
             'owner': {'S': 'John'},
             'label': {'S': 'Test'},
             'description': {'S': 'A test widget'},
